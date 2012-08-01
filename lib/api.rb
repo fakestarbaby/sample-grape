@@ -15,5 +15,15 @@ class API < Grape::API
     get ':id' do
       User.find(params[:id])
     end
+
+    desc "Creates a user"
+    params do
+      requires :name, :type => String
+    end
+    post :update do
+      User.create(
+        :name => params[:name]
+      )
+    end
   end
 end
